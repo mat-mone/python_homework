@@ -71,4 +71,10 @@ def grade (*args):
 
     except Exception:
         return "Invalid data was provided."   
-        
+
+# Task 6: create repeat function using a for loop with a range
+def repeat(string, count):
+    result = ""
+    for i in range(count):
+         result += string
+    return result
