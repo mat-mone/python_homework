@@ -52,3 +52,23 @@ def data_type_conversion(value, data_type):
 
     except ValueError:
         return f"You can't convert {value} into a {data_type}."
+
+# Task 5: grading system using *args
+def grade (*args):
+    try:
+        avg = sum(args) / len(args)
+
+        if avg >= 90:
+            return "A"
+        elif avg >= 80:
+            return "B"
+        elif avg >= 70:
+            return "C"
+        elif avg >= 60:
+            return "D"
+        else:
+            return "F"
+
+    except Exception:
+        return "Invalid data was provided."   
+        
