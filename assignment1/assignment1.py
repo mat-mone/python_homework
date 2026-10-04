@@ -39,3 +39,16 @@ def calc(a, b, arithmetic_operator = "multiply"):
     except TypeError:
         return "You can't multiply those values!"
 
+# Task 4: Data Type Conversion
+def data_type_conversion(value, data_type):
+    try:
+        match data_type:
+            case "int":
+                return int(value)
+            case "float":
+                return float(value)
+            case "str":
+                return str(value)
+
+    except ValueError:
+        return f"You can't convert {value} into a {data_type}."
