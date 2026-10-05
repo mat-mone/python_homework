@@ -78,3 +78,17 @@ def repeat(string, count):
     for i in range(count):
          result += string
     return result
+
+# Task 7: student scores using **kwargs
+def student_scores(metric, **kwargs):
+    if metric == "mean":
+        avg = sum(kwargs.values()) / len(kwargs.values())
+        return avg
+    elif metric == "best":
+        top_score = 0
+        top_student = ""
+        for student_name, score in kwargs.items():
+            if score > top_score:
+                top_score = score
+                top_student = student_name
+        return top_student
