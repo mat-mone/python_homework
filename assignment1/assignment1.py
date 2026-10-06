@@ -92,3 +92,20 @@ def student_scores(metric, **kwargs):
                 top_score = score
                 top_student = student_name
         return top_student
+
+# Task 8: titleize, with string and list operations
+def titleize(string):
+    little_words = ["a", "on", "an", "the", "of", "and", "is", "in"]
+    words = string.split()
+    new_string = []
+
+    for i, word in enumerate(words):
+        lowercase_word = word.lower()
+
+        if i == 0 or i == len(words) - 1:
+            new_string.append(word.capitalize())
+        elif lowercase_word in little_words:
+            new_string.append(lowercase_word)
+        else:
+            new_string.append(word.capitalize())
+    return " ".join(new_string)
