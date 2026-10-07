@@ -39,6 +39,8 @@ def calc(a, b, arithmetic_operator = "multiply"):
     except TypeError:
         return "You can't multiply those values!"
 
+print("=====task 3 completed=====")
+
 # Task 4: Data Type Conversion
 def data_type_conversion(value, data_type):
     try:
@@ -52,6 +54,8 @@ def data_type_conversion(value, data_type):
 
     except ValueError:
         return f"You can't convert {value} into a {data_type}."
+
+print("=====task 4 completed=====")
 
 # Task 5: grading system using *args
 def grade (*args):
@@ -72,6 +76,8 @@ def grade (*args):
     except Exception:
         return "Invalid data was provided."   
 
+print("=====task 5 completed=====")
+
 # Task 6: create repeat function using a for loop with a range
 def repeat(string, count):
     result = ""
@@ -79,19 +85,25 @@ def repeat(string, count):
          result += string
     return result
 
+print("=====task 6 completed=====")
+
 # Task 7: student scores using **kwargs
 def student_scores(metric, **kwargs):
     if metric == "mean":
         avg = sum(kwargs.values()) / len(kwargs.values())
         return avg
+    
     elif metric == "best":
         top_score = 0
         top_student = ""
+
         for student_name, score in kwargs.items():
             if score > top_score:
                 top_score = score
                 top_student = student_name
         return top_student
+
+print("=====task 7 completed=====")
 
 # Task 8: titleize, with string and list operations
 def titleize(string):
@@ -104,11 +116,15 @@ def titleize(string):
 
         if i == 0 or i == len(words) - 1:
             new_string.append(word.capitalize())
+
         elif lowercase_word in little_words:
             new_string.append(lowercase_word)
+
         else:
             new_string.append(word.capitalize())
     return " ".join(new_string)
+
+print("=====task 8 completed=====")
 
 # Task 9: Hangman, with more string operations
 def hangman(secret, guess):
@@ -119,3 +135,32 @@ def hangman(secret, guess):
         else:
             result += "_"
     return result
+
+print("=====task 9 completed=====")
+
+# Task 10: Pig Latin, another string manipulation exercise
+def pig_latin(string):
+    vowels = "aeiou"
+    words = string.split()
+    new_words = []
+
+    for word in words:
+
+        if word[0] in vowels:
+            new_words.append(word + "ay")
+
+        else:
+            for i, letter in enumerate(word):
+                if letter in vowels:
+                    if letter == "u" and i > 0 and word[i - 1] == "q":
+                        rearranged_word = word[i + 1:] + word[:i + 1] + "ay"
+                    else:
+                        rearranged_word = word[i:] + word[:i] + "ay"
+
+                    new_words.append(rearranged_word)
+
+                    break
+
+    return " ".join(new_words)
+
+print("=====task 10 completed=====")
