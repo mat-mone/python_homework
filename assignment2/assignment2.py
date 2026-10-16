@@ -1,4 +1,4 @@
-# Task 2
+# Task 2: read a csv file
 import csv
 import traceback
 
@@ -37,3 +37,13 @@ def column_index(column_name):
     return employees["fields"].index(column_name)
 
 employee_id_column = column_index("employee_id")
+
+# Task 4: find employee first name
+def first_name(row_number):
+    first_name_column = column_index("first_name")
+
+    employee_row = employees["rows"][row_number]
+
+    first_name_value = employee_row[first_name_column]
+    
+    return first_name_value
