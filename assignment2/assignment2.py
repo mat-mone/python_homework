@@ -45,5 +45,15 @@ def first_name(row_number):
     employee_row = employees["rows"][row_number]
 
     first_name_value = employee_row[first_name_column]
-    
+
     return first_name_value
+
+# Task 5: find the employee; a function in a function
+def employee_find(employee_id):
+
+    def employee_match(row):
+        return int(row[employee_id_column]) == employee_id
+
+    matches=list(filter(employee_match, employees["rows"]))
+    return matches
+    
