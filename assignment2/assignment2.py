@@ -90,3 +90,14 @@ def employee_dict(row):
 employee_row = employees["rows"][0]
 print(employee_dict(employee_row))
 
+# Task 9: a dict of dicts, for all employees
+def all_employees_dict():
+    all_employee_info = {}
+
+    for row in employees["rows"]:
+        employee_id = row[employee_id_column]
+        all_employee_info[employee_id] = employee_dict(row)
+
+    return all_employee_info
+
+print(all_employees_dict)
