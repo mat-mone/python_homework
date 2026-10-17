@@ -2,6 +2,7 @@
 import csv
 import traceback
 import os
+import custom_module
 
 def read_employees():
     employees = {}
@@ -106,3 +107,10 @@ print(all_employees_dict)
 # Task 10: use the os model
 def get_this_value():
     return os.getenv("THISVALUE")
+
+# Task 11: creating your own module
+def set_that_secret(new_secret):
+    custom_module.set_secret(new_secret)
+
+set_that_secret("agbara nla")
+print(custom_module.secret)
