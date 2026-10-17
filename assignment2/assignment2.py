@@ -71,3 +71,22 @@ def sort_by_last_name():
     )
 
     return employees["rows"]
+
+sort_by_last_name()
+print(employees)
+
+# Task 8: create a dict for an employee
+def employee_dict(row):
+    employee_info = {}
+
+    for i, field in enumerate(employees["fields"]):
+        if i == 0:
+            continue
+        else:
+            employee_info[field] = row[i]
+
+    return employee_info
+
+employee_row = employees["rows"][0]
+print(employee_dict(employee_row))
+
