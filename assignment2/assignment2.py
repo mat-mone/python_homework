@@ -1,6 +1,7 @@
 # Task 2: read a csv file
 import csv
 import traceback
+import os
 
 def read_employees():
     employees = {}
@@ -101,3 +102,7 @@ def all_employees_dict():
     return all_employee_info
 
 print(all_employees_dict)
+
+# Task 10: use the os model
+def get_this_value():
+    return os.getenv("THISVALUE")
