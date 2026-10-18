@@ -114,3 +114,31 @@ def set_that_secret(new_secret):
 
 set_that_secret("agbara nla")
 print(custom_module.secret)
+
+# Task 12: read minutes1.csv and minutes2.csv
+def read_csv_file(filename):
+    data = {}
+    rows = []
+
+    with open(filename) as file:
+        reader = csv.reader(file)
+
+        for i, row in enumerate(reader):
+            if i == 0:
+                data["fields"] = row
+            else:
+                rows.append(tuple(row))
+        
+    data["rows"] = rows
+
+    return data
+
+def read_minutes():
+    minutes1 = read_csv_file("../csv/minutes1.csv")
+    minutes2 = read_csv_file("../csv/minutes2.csv")
+
+    return minutes1, minutes2
+
+minutes1, minutes2 = read_minutes()
+print(minutes1)
+print(minutes2)
