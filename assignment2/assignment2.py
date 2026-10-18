@@ -158,10 +158,7 @@ minutes_set = create_minutes_set()
 def create_minutes_list():
     minutes_list = list(
         map(
-            lambda x: (
-                x[0],
-                datetime.strptime(x[1], "%B %d, %Y")
-            ),
+            lambda x: (x[0], datetime.strptime(x[1], "%B %d, %Y")),
             minutes_set
         )
     )
@@ -170,3 +167,28 @@ def create_minutes_list():
 
 minutes_list = create_minutes_list()
 print(minutes_list)
+
+# Task 15: write out sorted list
+def write_sorted_list():
+    minutes_list.sort(key=lambda item: item[1])
+
+    converted_minutes = list(
+        map(
+            lambda item: (
+                item[0],
+                item[1].strftime("%B %d, %Y")
+            ),
+            minutes_list
+        )
+    )
+
+    with open("./minutes.csv", "w", newline="") as file:
+        writer = csv.writer(file)
+        writer.writerow(minutes1["fields"])
+
+        for row in converted_minutes:
+            writer.writerow(row)
+        
+        return converted_minutes
+
+write_sorted_list()
