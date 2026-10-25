@@ -1,3 +1,5 @@
+# Task 4
+
 def make_hangman(secret_word):
     guesses = []
 
@@ -20,7 +22,7 @@ def make_hangman(secret_word):
 
     return hangman_closure
 
-secret_word = input("Please enter the secret word")
+secret_word = input("Please enter the secret word: ")
 ready_set_play = make_hangman(secret_word)
 
 while not ready_set_play(input("guess a letter: ")):
