@@ -1,0 +1,12 @@
+function: hello
+positional parameters: none
+keyword parameters: none
+return: None
+function: return_true
+positional parameters: ('Tuesday', 'Thursday', 2)
+keyword parameters: none
+return: True
+function: return_decorator
+positional parameters: none
+keyword parameters: {'name': 'Super Mario', 'age': 'Unknown', 'gender': 'Male'}
+return: <function logger_decorator at 0x00000262C746D080>
