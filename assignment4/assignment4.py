@@ -69,3 +69,44 @@ employee_shape = more_employees.shape
 print(employee_shape)
 
 more_employees.info()
+
+# Task 4: Data Cleaning
+dirty_data = pd.read_csv("dirty_data.csv")
+print(dirty_data)
+
+    # create copy
+clean_data = dirty_data.copy()
+
+    # remove duplicates
+clean_data = clean_data.drop_duplicates()
+
+    # convert Age to numeric and handle missing values
+clean_data["Age"] = pd.to_numeric(clean_data["Age"], errors="coerce")
+
+print(clean_data)
+
+    # Convert Salary to numeric and replace known placeholders (unknown, n/a) with NaN
+clean_data["Salary"] = clean_data["Salary"].replace(["unknown", "n/a"], pd.NA)
+
+clean_data["Salary"] = pd.to_numeric(clean_data["Salary"], errors="coerce")
+
+print(clean_data)
+
+    # Fill missing numeric values (use fillna). Fill Age with the mean and Salary with the median
+clean_data["Age"] = clean_data["Age"].fillna(clean_data["Age"].mean())
+
+clean_data["Salary"] = clean_data["Salary"].fillna(clean_data["Salary"].median())
+
+print(clean_data)
+
+    # Convert Hire Date to datetime
+clean_data["Hire Date"] = pd.to_datetime(clean_data["Hire Date"], format="mixed")
+
+print(clean_data)
+
+    # Strip extra whitespace and standardize Name and Department as uppercase
+clean_data["Name"] = clean_data["Name"].str.strip().str.upper()
+
+clean_data["Department"] = clean_data["Department"].str.strip().str.upper()
+
+print(clean_data)
